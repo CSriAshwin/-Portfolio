@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>C. Sri Ashwin | Aspiring Software Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#FAF6EF;
+    --bg-card:#FFFFFF;
+    --ink:#201C33;
+    --muted:#6E6680;
+    --violet:#5B4FE9;
+    --violet-soft:#EDEBFC;
+    --teal:#0EAE84;
+    --teal-soft:#E3F7EF;
+    --coral:#FF6B4A;
+    --coral-soft:#FFEAE3;
+    --sun:#F5B400;
+    --sun-soft:#FFF3D6;
+    --line:#E7E0D3;
+
+    --display:'Space Grotesk', sans-serif;
+    --body:'Inter', sans-serif;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+@media(prefers-reduced-motion:reduce){
+    html{
+        scroll-behavior:auto;
+    }
+
+    *{
+        animation-duration:.001ms !important;
+        transition-duration:.001ms !important;
+    }
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+}
+
+a{
+    color:inherit;
+}
+
+::selection{
+    background:var(--violet);
+    color:#fff;
+}
+
+.wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 28px;
+}
+
+/* ---------- Navigation ---------- */
+
+header.nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(250,246,239,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 28px;
+    max-width:1040px;
+    margin:0 auto;
+}
+
+.monogram{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:conic-gradient(
+        from 220deg,
+        var(--violet),
+        var(--teal),
+        var(--coral),
+        var(--violet)
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--display);
+    font-weight:700;
+    font-size:13px;
+    color:#fff;
+    flex:none;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    text-decoration:none;
+}
+
+.brand span{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+}
+
+nav.links{
+    display:flex;
+    gap:4px;
+}
+
+nav.links a{
+    font-size:14px;
+    font-weight:500;
+    color:var(--muted);
+    text-decoration:none;
+    padding:8px 13px;
+    border-radius:8px;
+    transition:color .15s ease, background .15s ease;
+}
+
+nav.links a:hover,
+nav.links a:focus-visible{
+    color:var(--ink);
+    background:var(--violet-soft);
+    outline:none;
+}
+
+@media(max-width:720px){
+    nav.links{
+        display:none;
+    }
+}
+
+/* ---------- Hero ---------- */
+
+.hero{
+    padding:76px 0 56px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-shapes{
+    position:absolute;
+    top:-60px;
+    right:-80px;
+    width:360px;
+    height:360px;
+    z-index:0;
+    pointer-events:none;
+    opacity:.9;
+}
+
+.hero-inner{
+    position:relative;
+    z-index:1;
+    max-width:680px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal);
+    background:var(--teal-soft);
+    padding:6px 13px;
+    border-radius:20px;
+    margin-bottom:22px;
+}
+
+.eyebrow .dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--teal);
+}
+
+h1{
+    font-family:var(--display);
+    font-weight:700;
+    margin:0 0 14px;
+    font-size:clamp(34px,6vw,54px);
+    line-height:1.06;
+    letter-spacing:-0.01em;
+}
+
+h1 .accent{
+    color:var(--violet);
+}
+
+.hero-role{
+    font-size:19px;
+    color:var(--muted);
+    margin:0 0 22px;
+    font-weight:500;
+}
+
+.hero-desc{
+    font-size:16px;
+    color:var(--ink);
+    opacity:.86;
+    max-width:600px;
+    margin:0 0 30px;
+}
+
+.contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.chip{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-size:13.5px;
+    font-weight:600;
+    text-decoration:none;
+    padding:9px 16px;
+    border-radius:24px;
+    border:1.5px solid var(--line);
+    color:var(--ink);
+    background:var(--bg-card);
+    transition:border-color .15s ease, transform .15s ease, background .15s ease;
+}
+
+.chip:hover,
+.chip:focus-visible{
+    border-color:var(--violet);
+    transform:translateY(-1px);
+    background:var(--violet-soft);
+    outline:none;
+}
+
+.chip.solid{
+    background:var(--ink);
+    color:#fff;
+    border-color:var(--ink);
+}
+
+.chip.solid:hover{
+    background:var(--violet);
+    border-color:var(--violet);
+    color:#fff;
+}
+
+/* ---------- Section ---------- */
+
+section{
+    padding:52px 0;
+    border-top:1px solid var(--line);
+}
+
+.sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+}
+
+.sec-tag{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:12.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:6px;
+}
+
+.sec-tag.v{
+    color:var(--violet);
+    background:var(--violet-soft);
+}
+
+.sec-tag.t{
+    color:var(--teal);
+    background:var(--teal-soft);
+}
+
+.sec-tag.c{
+    color:var(--coral);
+    background:var(--coral-soft);
+}
+
+.sec-tag.s{
+    color:#946200;
+    background:var(--sun-soft);
+}
+
+.sec-head h2{
+    font-family:var(--display);
+    font-size:26px;
+    margin:0;
+    font-weight:600;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .55s ease, transform .55s ease;
+}
+
+.reveal.in{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ---------- Skills ---------- */
+
+.skill-groups{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.skill-group{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 20px 18px;
+}
+
+.skill-group h4{
+    margin:0 0 12px;
+    font-family:var(--display);
+    font-size:14.5px;
+    font-weight:600;
+}
+
+.tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.tag{
+    font-size:12.5px;
+    font-weight:600;
+    padding:6px 11px;
+    border-radius:8px;
+}
+
+.tag.v{
+    background:var(--violet-soft);
+    color:var(--violet);
+}
+
+.tag.t{
+    background:var(--teal-soft);
+    color:var(--teal);
+}
+
+.tag.c{
+    background:var(--coral-soft);
+    color:var(--coral);
+}
+
+.tag.s{
+    background:var(--sun-soft);
+    color:#946200;
+}
+
+/* ---------- Cards ---------- */
+
+.big-card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px 28px;
+    position:relative;
+    overflow:hidden;
+}
+
+.big-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:5px;
+}
+
+.big-card.teal::before{
+    background:var(--teal);
+}
+
+.big-card.coral::before{
+    background:var(--coral);
+}
+
+.big-card.violet::before{
+    background:var(--violet);
+}
+
+.big-card.sun::before{
+    background:var(--sun);
+}
+
+.card-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+}
+
+.big-card h3{
+    font-family:var(--display);
+    font-size:19px;
+    margin:0 0 2px;
+    font-weight:600;
+}
+
+.card-sub{
+    font-size:14px;
+    color:var(--muted);
+    font-weight:500;
+}
+
+.card-badge{
+    font-size:12px;
+    font-weight:700;
+    padding:5px 11px;
+    border-radius:20px;
+    white-space:nowrap;
+}
+
+.card-badge.violet{
+    background:var(--violet-soft);
+    color:var(--violet);
+}
+
+.card-badge.coral{
+    background:var(--coral-soft);
+    color:var(--coral);
+}
+
+.card-badge.teal{
+    background:var(--teal-soft);
+    color:var(--teal);
+}
+
+.card-badge.sun{
+    background:var(--sun-soft);
+    color:#946200;
+}
+
+.big-card ul{
+    margin:16px 0 0;
+    padding-left:20px;
+}
+
+.big-card li{
+    margin:7px 0;
+    font-size:15px;
+}
+
+.big-card li::marker{
+    color:var(--muted);
+}
+
+/* ---------- Education ---------- */
+
+.edu-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:16px;
+}
+
+@media(max-width:680px){
+    .edu-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+.edu-card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 22px;
+}
+
+.edu-card .big{
+    font-family:var(--display);
+    font-size:26px;
+    font-weight:700;
+    color:var(--violet);
+    margin-bottom:4px;
+}
+
+.edu-card h4{
+    margin:0 0 4px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.edu-card p{
+    margin:0;
+    font-size:13px;
+    color:var(--muted);
+}
+
+/* ---------- Profiles ---------- */
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:16px;
+}
+
+.profile-card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+}
+
+.profile-card h4{
+    font-family:var(--display);
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.profile-card a{
+    color:var(--violet);
+    font-size:13.5px;
+    font-weight:600;
+    text-decoration:none;
+    word-break:break-word;
+}
+
+.profile-card a:hover{
+    text-decoration:underline;
+}
+
+/* ---------- Lists ---------- */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:16px;
+}
+
+.info-card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+}
+
+.info-card h4{
+    font-family:var(--display);
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.info-card ul{
+    margin:0;
+    padding-left:19px;
+}
+
+.info-card li{
+    font-size:14px;
+    margin:7px 0;
+}
+
+/* ---------- Contact ---------- */
+
+.cta-band{
+    margin-top:12px;
+    border-radius:22px;
+    padding:46px 40px;
+    background:linear-gradient(
+        135deg,
+        var(--violet) 0%,
+        #7A6FF0 45%,
+        var(--coral) 100%
+    );
+    color:#fff;
+    text-align:center;
+}
+
+.cta-band h2{
+    font-family:var(--display);
+    font-size:clamp(24px,4vw,32px);
+    margin:0 0 10px;
+    font-weight:700;
+}
+
+.cta-band p{
+    margin:0 0 26px;
+    opacity:.92;
+    font-size:15px;
+}
+
+.cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+}
+
+.cta{
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:26px;
+    transition:transform .15s ease, background .15s ease;
+}
+
+.cta.primary{
+    background:#fff;
+    color:var(--violet);
+}
+
+.cta.primary:hover,
+.cta.primary:focus-visible{
+    transform:translateY(-2px);
+    outline:none;
+}
+
+.cta.ghost{
+    background:rgba(255,255,255,.14);
+    color:#fff;
+    border:1.5px solid rgba(255,255,255,.5);
+}
+
+.cta.ghost:hover,
+.cta.ghost:focus-visible{
+    background:rgba(255,255,255,.24);
+    transform:translateY(-2px);
+    outline:none;
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+    text-align:center;
+    padding:30px 20px 46px;
+    font-size:13px;
+    color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ---------- Navigation ---------- -->
+
+<header class="nav">
+    <div class="nav-inner">
+
+        <a class="brand" href="#top">
+            <span class="monogram">SA</span>
+            <span>C. Sri Ashwin</span>
+        </a>
+
+        <nav class="links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#project">Project</a>
+            <a href="#education">Education</a>
+            <a href="#profiles">Profiles</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main id="top" class="wrap">
+
+<!-- ---------- Hero ---------- -->
+
+<section class="hero" style="border-top:none;">
+
+    <svg class="hero-shapes"
+         viewBox="0 0 360 360"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true">
+
+        <circle
+            cx="260"
+            cy="90"
+            r="120"
+            fill="#5B4FE9"
+            opacity="0.10"/>
+
+        <rect
+            x="205"
+            y="150"
+            width="130"
+            height="130"
+            rx="34"
+            fill="#0EAE84"
+            opacity="0.12"
+            transform="rotate(18 270 215)"/>
+
+        <circle
+            cx="330"
+            cy="240"
+            r="46"
+            fill="#FF6B4A"
+            opacity="0.16"/>
+
+    </svg>
+
+
+    <div class="hero-inner reveal in">
+
+        <div class="eyebrow">
+            <span class="dot"></span>
+            Aspiring Software Developer
+        </div>
+
+        <h1>
+            C. Sri <span class="accent">Ashwin</span>
+        </h1>
+
+        <p class="hero-role">
+            Aspiring Software Developer
+        </p>
+
+        <p class="hero-desc">
+            Computer Science and Engineering student with a strong interest
+            in programming and frontend development. Skilled in HTML, CSS,
+            C, C++, Python and Java, with a focus on continuously learning
+            new technologies and building useful software solutions.
+        </p>
+
+        <div class="contact-row">
+
+            <a class="chip solid"
+               href="tel:+916381155743">
+                📞 +91 6381155743
+            </a>
+
+            <span class="chip" style="cursor:default;">
+                📍 Tiruppur, Tamil Nadu
+            </span>
+
+            <a class="chip"
+               href="https://www.linkedin.com/in/sri-ashwin/"
+               target="_blank"
+               rel="noopener">
+                LinkedIn
+            </a>
+
+            <a class="chip"
+               href="https://github.com/CSriAshwin"
+               target="_blank"
+               rel="noopener">
+                GitHub
+            </a>
+
+            <a class="chip"
+               href="https://leetcode.com/u/CSriAshwin/"
+               target="_blank"
+               rel="noopener">
+                LeetCode
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- About ---------- -->
+
+<section id="about" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag v">About</span>
+        <h2>Career Objective</h2>
+    </div>
+
+    <div class="big-card violet">
+
+        <p>
+            To obtain a challenging position in a reputed organization
+            where I can use my programming knowledge and frontend
+            development skills, while continuously learning new
+            technologies and contributing to useful software solutions.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Skills ---------- -->
+
+<section id="skills" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag t">Skills</span>
+        <h2>What I work with</h2>
+    </div>
+
+    <div class="skill-groups">
+
+        <div class="skill-group">
+
+            <h4>Frontend</h4>
+
+            <div class="tag-row">
+                <span class="tag v">HTML</span>
+                <span class="tag v">CSS</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h4>Programming Languages</h4>
+
+            <div class="tag-row">
+                <span class="tag t">C</span>
+                <span class="tag t">C++</span>
+                <span class="tag t">Python</span>
+                <span class="tag t">Java</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h4>Development</h4>
+
+            <div class="tag-row">
+                <span class="tag c">Frontend Development</span>
+                <span class="tag c">Programming</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h4>Learning Focus</h4>
+
+            <div class="tag-row">
+                <span class="tag s">New Technologies</span>
+                <span class="tag s">Software Solutions</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Project ---------- -->
+
+<section id="project" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag c">Project</span>
+        <h2>Featured Project</h2>
+    </div>
+
+
+    <div class="big-card coral">
+
+        <div class="card-top">
+
+            <div>
+                <h3>Smart Vehicle</h3>
+
+                <div class="card-sub">
+                    Smart vehicle concept
+                </div>
+            </div>
+
+            <span class="card-badge coral">
+                Smart Technology
+            </span>
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                Developed a smart vehicle concept focused on improving
+                vehicle safety, automation, and intelligent features.
+            </li>
+
+            <li>
+                The project combines sensors and smart technologies
+                to support functions such as vehicle monitoring and
+                automated assistance.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Education ---------- -->
+
+<section id="education" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag v">Education</span>
+        <h2>Academic background</h2>
+    </div>
+
+
+    <div class="edu-grid">
+
+        <div class="edu-card">
+
+            <div class="big">B.E.</div>
+
+            <h4>
+                Computer Science and Engineering
+            </h4>
+
+            <p>
+                V.S.B College of Engineering Technical Campus
+            </p>
+
+            <p>
+                Currently Pursuing
+            </p>
+
+        </div>
+
+
+        <div class="edu-card">
+
+            <div class="big">78%</div>
+
+            <h4>
+                Higher Secondary — 12th
+            </h4>
+
+            <p>
+                Kids Club Matriculation Higher Secondary School
+            </p>
+
+        </div>
+
+
+        <div class="edu-card">
+
+            <div class="big">75%</div>
+
+            <h4>
+                Secondary — 10th
+            </h4>
+
+            <p>
+                Bharath Matriculation School
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Online Profiles ---------- -->
+
+<section id="profiles" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag t">Profiles</span>
+        <h2>Find me online</h2>
+    </div>
+
+
+    <div class="profile-grid">
+
+        <div class="profile-card">
+
+            <h4>LinkedIn</h4>
+
+            <a href="https://www.linkedin.com/in/sri-ashwin/"
+               target="_blank"
+               rel="noopener">
+                linkedin.com/in/sri-ashwin
+            </a>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <h4>GitHub</h4>
+
+            <a href="https://github.com/CSriAshwin"
+               target="_blank"
+               rel="noopener">
+                github.com/CSriAshwin
+            </a>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <h4>LeetCode</h4>
+
+            <a href="https://leetcode.com/u/CSriAshwin/"
+               target="_blank"
+               rel="noopener">
+                leetcode.com/u/CSriAshwin
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Achievements ---------- -->
+
+<section id="achievements" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag s">Achievements</span>
+        <h2>Courses completed</h2>
+    </div>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <h4>Infosys Springboard</h4>
+
+            <ul>
+                <li>Java Course</li>
+                <li>Python Course</li>
+                <li>Programming in C Course</li>
+                <li>Cyber security</li>
+                <li>C++</li>
+                
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Languages ---------- -->
+
+<section id="languages" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag v">Languages</span>
+        <h2>Languages I know</h2>
+    </div>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <h4>Communication</h4>
+
+            <ul>
+                <li>English</li>
+                <li>Tamil</li>
+                <li>Spanish</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Activities ---------- -->
+
+<section id="activities" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag c">Activities</span>
+        <h2>Beyond coding</h2>
+    </div>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <h4>Extra-Curricular Activities</h4>
+
+            <ul>
+                <li>Reading books</li>
+                <li>Helping others</li>
+                <li>Learning new technologies</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Declaration ---------- -->
+
+<section id="declaration" class="reveal">
+
+    <div class="sec-head">
+        <span class="sec-tag t">Declaration</span>
+        <h2>Statement</h2>
+    </div>
+
+
+    <div class="big-card teal">
+
+        <p>
+            I hereby declare that the information provided above is true
+            and correct to the best of my knowledge and belief.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ---------- Contact ---------- -->
+
+<section id="contact" style="border-top:none;">
+
+    <div class="cta-band reveal">
+
+        <h2>
+            Let's build something together
+        </h2>
+
+        <p>
+            Aspiring Software Developer · C · C++ · Python · Java · HTML · CSS
+        </p>
+
+        <div class="cta-row">
+
+            <a class="cta primary"
+               href="tel:+916381155743">
+                Call me
+            </a>
+
+            <a class="cta ghost"
+               href="https://www.linkedin.com/in/sri-ashwin/"
+               target="_blank"
+               rel="noopener">
+                LinkedIn
+            </a>
+
+            <a class="cta ghost"
+               href="https://github.com/CSriAshwin"
+               target="_blank"
+               rel="noopener">
+                GitHub
+            </a>
+
+            <a class="cta ghost"
+               href="https://leetcode.com/u/CSriAshwin/"
+               target="_blank"
+               rel="noopener">
+                LeetCode
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ---------- Footer ---------- -->
+
+<footer>
+    © 2026 C. Sri Ashwin · Tiruppur, Tamil Nadu
+</footer>
+
+
+<script>
+
+const els = document.querySelectorAll('.reveal');
+
+if('IntersectionObserver' in window){
+
+    const io = new IntersectionObserver(
+        (entries)=>{
+            entries.forEach(
+                e=>{
+                    if(e.isIntersecting){
+                        e.target.classList.add('in');
+                        io.unobserve(e.target);
+                    }
+                }
+            );
+        },
+        {
+            threshold:0.1
+        }
+    );
+
+    els.forEach(el=>io.observe(el));
+
+}else{
+
+    els.forEach(el=>el.classList.add('in'));
+
+}
+
+</script>
+
+</body>
+</html>
